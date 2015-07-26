@@ -1,6 +1,6 @@
 ## These functions take a square matrix, create a list of functions used to 
 ## manipulate the matrix and calculate its inverse, and cache the value of the inverse
-## it so that it does not need to be recalculated at a later point, which can be 
+## so that it does not need to be recalculated at a later point, which can be 
 ## computationally intensive if the matrix is large.
 
 
@@ -35,13 +35,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ## in the cache using the setinverse() function.
 
 cacheSolve <- function(x, ...) {
-    m <- x$getinverse() ## sets m equal to m from makeCacheMatrix
+    m <- x$getinverse() ## sets m equal to m from makeCacheMatrix()
     if(!is.null(m)) {
     	message("getting cached data")
     	return(m) ## if m is not NULL then return m - the inverse matrix already cached
     }
     mat <- x$getmatrix() ## if m is NULL then retrieve inputted matrix from getmatrix()
     m <- solve(mat, ...) ## then calculate inverse and assign value to m
-    x$setinverse(m) ## then use setinverse() function to assign inverse value to m withint makeCacheMatrix.
+    x$setinverse(m) ## then use setinverse() function to assign inverse value to m within makeCacheMatrix().
     m ## will no longer be NULL and will be cached as such
 }
